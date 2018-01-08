@@ -1,0 +1,22 @@
+{
+  "name": "json_expression_evaluator",
+  "version": "0.0.1",
+  "description": "Json Expression Evaluator",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fast-csv": "^2.4.1",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "mocha": "~2.3.3",
+    "mysql": "^2.10.2",
+    "istanbul": "^0.4.5",
+    "should": "^8.0.0",
+    "supertest": "^1.1.0"
+  }
+}

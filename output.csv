@@ -1,0 +1,5 @@
+expression,jsonData,result
+"$color == 'red'","{""color"":""red"",""size"":10,""cost"":100.0,""mattress"":{""name"":""king""},""big"":true,""legs"":[{""length"":4}]}",true
+"$mattress.name == 'king' AND $cost == 100.0","{""color"":""red"",""size"":10,""cost"":100.0,""mattress"":{""name"":""king""},""big"":true,""legs"":[{""length"":4}]}",true
+NOT EXISTS $color,"{""color"":""red"",""size"":10,""cost"":100.0,""mattress"":{""name"":""king""},""big"":true,""legs"":[{""length"":4}]}",false
+( $cost == 100.0 AND ( $mattress.big == false ) ) OR $size == 100,"{""color"":""red"",""size"":10,""cost"":100.0,""mattress"":{""name"":""king""},""big"":true,""legs"":[{""length"":4}]}",false
