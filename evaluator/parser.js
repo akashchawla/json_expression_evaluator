@@ -45,7 +45,7 @@ class Parser{
             leftParanthesis.forEach(function(lp){
                 isValid = isValid && rightParanthesis.some(function(rp){
                     return rp.positionIndex > lp.positionIndex;
-                })
+                });
             });
         }
         return isValid;

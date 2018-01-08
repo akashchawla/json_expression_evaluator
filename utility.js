@@ -11,6 +11,9 @@ const util = require('util'),
  */
 class Utility{
 
+    /**
+     * Constructr of the Utility class
+     */
     constructor(){
         this.logLevelAllowed = new Array(constants.LOG_LEVELS.INFO, constants.LOG_LEVELS.ERROR);
     }
@@ -30,6 +33,13 @@ class Utility{
                 });
             }
         }
+    }
+
+    /**
+     * This method returns the list of levels allowed for logging in the application
+     */
+    getLogLevelsAllowed(){
+        return this.logLevelAllowed;
     }
 
     /**

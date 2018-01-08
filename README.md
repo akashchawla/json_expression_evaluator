@@ -25,8 +25,11 @@ To run the application , you need to run following command
 
 ```
 node app.js <<input_file_path>> <<output_file_path>>
+
+Example : node app.js input.csv output.csv
 ```
 
 <<input_file_path>> - It is mandatory command line arguement required by the application. This is the path from which application picks the input data.
 <<output_file_path>> - It is non-mandatory arguement. By default, it saves result at root directory of repository
 
+NOTE : Sample input and output file generated can be found in the root folder

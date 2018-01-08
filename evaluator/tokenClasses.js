@@ -79,7 +79,7 @@ class DecimalLiteral extends Literals{
 class IntegerLiteral extends Literals{
     constructor(lexeme, positionIndex){
         let value = !isNaN(Number(lexeme)) ? Number(lexeme) : 0;
-        super(lexeme, value, );
+        super(lexeme, value, positionIndex);
     }
 }
 

@@ -4,7 +4,8 @@
   "description": "Json Expression Evaluator",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "node app",
+    "test": "istanbul cover _mocha tests/index.js"
   },
   "author": "",
   "license": "ISC",
