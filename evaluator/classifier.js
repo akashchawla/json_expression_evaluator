@@ -25,7 +25,7 @@ class Classifier{
         let self = this;
         //Classiying lexemes into token classes
     
-        let lexeme_tokenClass_map = {};
+        let lexeme_tokenClass_list = [];
     
         //Iterating over each lexeme
         self.lexemes.forEach(function(lexeme, index){
@@ -37,14 +37,15 @@ class Classifier{
                 //If matched then set the entry in a map which has key = lexeme and value = token
                 //and breaks the inner-loop via return
                 if(tokenCl.regex.test(lexeme)){
-                    lexeme_tokenClass_map[lexeme] = new tokenCl.instantiateClass(lexeme, index, jsonObject);
+                    let tokenInstance = new tokenCl.instantiateClass(lexeme, index, jsonObject);
+                    lexeme_tokenClass_list.push(tokenInstance);
                     return;
                 }
             });
-
+            
         });
     
-        return lexeme_tokenClass_map;
+        return lexeme_tokenClass_list;
     }
 }
 

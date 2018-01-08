@@ -8,13 +8,27 @@ const G = require('../globals'),
 
 describe('Application Test Suite', function(){
 
-        let app = new (require('../app'))('input.csv', 'output.csv');
+        it('should run the application successfully', function(done){
+            let app = new (require('../app'))('input.csv', 'output.csv');
+            
+                    app.initialize()
+                        .then(function(){
+                            it.should.assert('Application runned without any error');
+                            done();
+                        });  
+        });
 
-        app.initialize()
-            .then(function(){
-               
-            }).catch(function(){
-            });        
+        it('should not run the application successfully if input path is not present', function(done){
+            let app = new (require('../app'))(undefined, 'output.csv');
+            
+                    app.initialize()
+                        .catch(function(err){
+                            it.should.assert('Application returned with an error');
+                            err.message.should.be.equal('Invalid/Missing input or output file path');
+                            done();
+                        });  
+        });
+              
 });
 
 describe('Module-wise Test suite', function(){

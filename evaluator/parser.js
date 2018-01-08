@@ -14,11 +14,9 @@ class Parser{
     /**
      * Constructor of the class
      * @param {Object} lexemeTokens : Map of lexemes : tokens
-     * @param {Array} lexemes : list of lexemes
      */
-    constructor(lexemeTokens, lexemes){
+    constructor(lexemeTokens){
         this.lexemeTokens = lexemeTokens;
-        this.lexemes = lexemes;
     }
 
     /**
@@ -27,9 +25,8 @@ class Parser{
      */
     checkIfBalancedExpression(){
         let self = this;
-        let tokens = _.values(self.lexemeTokens);
 
-        let paranthesisTokens = _.filter(tokens, function(token){
+        let paranthesisTokens = _.filter(self.lexemeTokens, function(token){
             return token.type === constants.LEXEME_TYPES.PARANTHESIS;
         });
 
@@ -48,6 +45,7 @@ class Parser{
                 });
             });
         }
+
         return isValid;
     }
 
@@ -58,13 +56,15 @@ class Parser{
     parseTokenToEvaluate(){
         let self = this;
         let expression = [];
-        let lexemeIndexEvaluated = [];
 
         //Creating a base Javascript expression to evaluate
-        for(let i = 0; i < self.lexemes.length; i++){
-            let lexeme = self.lexemes[i];
-            let lexemeToken = self.lexemeTokens[lexeme];
-            expression.push(lexemeToken.value);   
+        self.lexemeTokens = _.sortBy(self.lexemeTokens, function(token){
+            return token.positionIndex;
+        });
+
+        for(let i = 0; i < self.lexemeTokens.length; i++){
+            let token = self.lexemeTokens[i];
+            expression.push(token.value);   
         }
 
         let expressionToEval = expression.join(' ');

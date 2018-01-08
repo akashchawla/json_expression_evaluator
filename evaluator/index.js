@@ -49,7 +49,7 @@ class Evaluator{
             let lexemTokens = classifier.classifyTokens(jsonObject);
 
              //Passing the tokens and lexems to the Parser for evaluating the expression result
-            let parser = new Parser(lexemTokens, lexemes);
+            let parser = new Parser(lexemTokens);
             if(parser.checkIfBalancedExpression()){
                 return parser.parseTokenToEvaluate(); 
             }else{
