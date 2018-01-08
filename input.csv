@@ -3,3 +3,4 @@ $color == 'red',"{""color"":""red"",""size"":10,""cost"":100.0,""mattress"":{""n
 $mattress.name == 'king' AND $cost == 100.0,"{""color"":""red"",""size"":10,""cost"":100.0,""mattress"":{""name"":""king""},""big"":true,""legs"":[{""length"":4}]}"
 NOT EXISTS $color,"{""color"":""red"",""size"":10,""cost"":100.0,""mattress"":{""name"":""king""},""big"":true,""legs"":[{""length"":4}]}"
 ( $cost == 100.0 AND ( $mattress.big == false ) ) OR $size == 100,"{""color"":""red"",""size"":10,""cost"":100.0,""mattress"":{""name"":""king""},""big"":true,""legs"":[{""length"":4}]}"
+(( $cost == 100.0 AND ( $mattress.big == false ) ) OR $size == 100,"{""color"":""red"",""size"":10,""cost"":100.0,""mattress"":{""name"":""king""},""big"":true,""legs"":[{""length"":4}]}"

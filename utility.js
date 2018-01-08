@@ -24,11 +24,12 @@ class Utility{
      * @param {Boolean} addLevel : Whether you wanna add or remove above level from list of allowed levels
      */
     modifyLogLevel(level, addLevel){
+        let self = this;
         if(_.values(constants.LOG_LEVELS).indexOf(level) > -1){
             if(addLevel){
-                this.logLevelAllowed = this.logLevelAllowed.concat[level];
+                self.logLevelAllowed = self.logLevelAllowed.concat(level);
             }else{
-                this.logLevelAllowed = _.filter(function(allowedLevel){
+                self.logLevelAllowed = _.filter(self.logLevelAllowed, function(allowedLevel){
                     return allowedLevel !== level;
                 });
             }
@@ -135,7 +136,7 @@ class Utility{
             return 'null';
         }
         else if(constants.REGEX.BOOLEAN_VALUE.test(value)){
-            return value.toLoweCase() === 'true';
+            return value.toLowerCase() === 'true';
         }
         else if(constants.REGEX.DECIMAL_VALUE.test(value)){
             return !isNaN(Number(value)) ? Number(value) : 0.00;
