@@ -34,3 +34,5 @@ output: false
 Exp: "( $cost == 100.0 AND ( $mattress.big == false ) ) OR $size == 100"   
 Json: {"color":"red","size":10,"cost":100.0,"mattress":{"name":"king"},"big":true,"legs":[{"length":4}]} 
 Output: false
+
+Please go through README.md for implementation

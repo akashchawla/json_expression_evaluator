@@ -20,6 +20,19 @@ class Parser{
     }
 
     /**
+     * This method validates & check if any invalid token which is not a part of grammar is present
+     */
+    checkIfAnyInvalidGrammarLexeme(){
+        let self = this;
+        
+        let invalidTokens = _.filter(self.lexemeTokens, function(token){
+            return token.type === constants.LEXEME_TYPES.INVALID;
+        });
+
+        return invalidTokens.length > 0;
+    }
+
+    /**
      * This method validates the lexemeTokens and checks if left paranthesis is
      * equal to right paranthesis
      */
@@ -54,23 +67,30 @@ class Parser{
      * In the final step we have utilitised the Javascript's in-built eval() method to evaluate resultant expression
      */
     parseTokenToEvaluate(){
-        let self = this;
-        let expression = [];
+        let self = this,
+        evaluationResult = false;
+        try
+        {
+            let expression = [];
+            
+            //Creating a base Javascript expression to evaluate
+            self.lexemeTokens = _.sortBy(self.lexemeTokens, function(token){
+                return token.positionIndex;
+            });
 
-        //Creating a base Javascript expression to evaluate
-        self.lexemeTokens = _.sortBy(self.lexemeTokens, function(token){
-            return token.positionIndex;
-        });
+            for(let i = 0; i < self.lexemeTokens.length; i++){
+                let token = self.lexemeTokens[i];
+                expression.push(token.value);   
+            }
+            
+            let expressionToEval = expression.join(' ');
+            evaluationResult = eval(expressionToEval);
 
-        for(let i = 0; i < self.lexemeTokens.length; i++){
-            let token = self.lexemeTokens[i];
-            expression.push(token.value);   
+            utility.logMessage('Expression: ' + expressionToEval + ' Result: '+ evaluationResult, constants.LOG_LEVELS.VERBOSE);
+        }catch(ex){
+            utility.logMessage('An error occured while evaluating the expression: ' + String(ex), constants.LOG_LEVELS.ERROR);
+            evaluationResult = false;
         }
-
-        let expressionToEval = expression.join(' ');
-        let evaluationResult = eval(expressionToEval);
-
-        utility.logMessage('Expression: ' + expressionToEval + ' Result: '+ evaluationResult, constants.LOG_LEVELS.VERBOSE);
 
         return evaluationResult;
     }

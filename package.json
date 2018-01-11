@@ -4,19 +4,19 @@
   "description": "Json Expression Evaluator",
   "main": "app.js",
   "scripts": {
-    "start" : "node app",
+    "start": "node app",
     "test": "istanbul cover _mocha tests/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "fast-csv": "^2.4.1",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "mocha": "^4.1.0"
   },
   "devDependencies": {
-    "mocha": "~2.3.3",
-    "mysql": "^2.10.2",
     "istanbul": "^0.4.5",
+    "mysql": "^2.10.2",
     "should": "^8.0.0",
     "supertest": "^1.1.0"
   }

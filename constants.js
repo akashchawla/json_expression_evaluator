@@ -19,10 +19,10 @@ var constants = {
     REGEX : {
         FILE_PATH : /^\S*$/,
         BOOLEAN_VALUE : /^(true|false)$/i,
-        DECIMAL_VALUE : /[0-9]\.+[0-9]*/,
+        DECIMAL_VALUE : /^[0-9]*\.+[0-9]*$/,
         INTEGER_VALUE : /^[0-9]*$/,
         STRING_VALUE : /^'.*'$/,
-        IDENTIFIER : /^[$][a-zA-Z]*?(\.[a-zA-Z]{1,})*$/,
+        IDENTIFIER : /^[$][a-zA-Z0-9_]*?(\.[a-zA-Z0-9_]{1,})*$/,
         AND_OPERATOR : /^(AND)$/i,
         OR_OPERATOR : /^(OR)$/i,
         EXISTS_OPERATOR : /^(EXISTS)$/i,
@@ -38,7 +38,8 @@ var constants = {
         IDENTIFIER : 'identifier',
         LITERALS : 'literals',
         OPERATORS : 'operators',
-        PARANTHESIS : 'paranthesis'
+        PARANTHESIS : 'paranthesis',
+        INVALID : 'invalid'
     }
 };
 

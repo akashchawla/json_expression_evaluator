@@ -1,3 +1,4 @@
+/*jshint multistr:true, node:true, esversion:6, mocha:true*/
 'use strict';
 
 const G = require('../globals'),
@@ -28,8 +29,8 @@ describe('Application Test Suite', function(){
                             done();
                         });  
         });
-              
 });
+
 
 describe('Module-wise Test suite', function(){
     utiliTyTests();

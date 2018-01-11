@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for json_expression_evaluator/evaluator/index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">json_expression_evaluator/evaluator/</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">91.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>11/12</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>3/3</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/20</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-yes">113×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">/*jshint multistr:true, node:true, esversion:6*/
+'use strict';
+&nbsp;
+const _ = require('lodash'),
+      G = require('../globals'),
+      utility = G.Utility,
+      Classifier = require('./classifier'),
+      Parser = require('./parser');
+/**
+ * This class comprises of the core logical components of the problem statement
+ */
+class Evaluator{
+&nbsp;
+    /**
+     * This method evaluates the expression on the basis of the jsonData
+     * Logic of the method is mentioned below
+     * @param {*} expression : Query expression string
+     * @param {*} jsonData : Json Data input
+     */
+    evaluate(expression, jsonData){
+        let self = this;
+        /* 
+        LOGIC:
+        1. Validate if expression and jsonData is valid
+        2. Create lexemes out of the expression, In order to do so split the expression on while spaces
+        3. Classify each lexeme into a token class by looking into the symbol table
+        4. Pass these tokens to a parser, which will evaluate the expression and returns the result
+        */
+&nbsp;
+        if(!_.isEmpty(expression) &amp;&amp; utility.isJsonString(jsonData)){
+            let jsonObject = JSON.parse(jsonData);
+            
+            let lexemes = self._createLexemes(expression);
+&nbsp;
+            //Checking if no lexemes are there
+            <span class="missing-if-branch" title="if path not taken" >I</span>if(lexemes.length === 0){
+<span class="cstat-no" title="statement not covered" >                return false;</span>
+            }
+&nbsp;
+             //Treating these modules as abstract classes
+            let classifier = new Classifier(lexemes);
+            let lexemTokens = classifier.classifyTokens(jsonObject);
+&nbsp;
+             //Passing the tokens and lexems to the Parser for evaluating the expression result
+            let parser = new Parser(lexemTokens);
+            if(!parser.checkIfAnyInvalidGrammarLexeme() &amp;&amp; parser.checkIfBalancedExpression()){
+                return parser.parseTokenToEvaluate(); 
+            }else{
+                return false;
+            } 
+        }else{
+            return false;
+        }
+    }
+&nbsp;
+    /**
+     * This method takes in the expression and create lexemes out of it
+     * @param {string} expression e.g. $mattress.name == 'king' AND $cost == 100.0
+     */
+    _createLexemes(expression){
+&nbsp;
+        expression = expression || '';
+        //Getting lexemes out of the expression
+        let lexemes = expression.split(' ');
+        
+        //Filtering the lexemes which are empty strings
+        lexemes = _.filter(lexemes, function(lexeme){
+            return !_.isEmpty(lexeme.trim());
+        });
+&nbsp;
+        return lexemes;
+    }    
+}
+&nbsp;
+module.exports = Evaluator;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 11 2018 12:31:15 GMT+0530 (IST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

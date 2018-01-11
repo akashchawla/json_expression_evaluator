@@ -13,7 +13,7 @@ const _ = require('lodash'),
  * Base class for each lexeme token
  */
 class BaseToken{
-    constructor(lexeme, value, type, positionIndex){
+    constructor(lexeme, positionIndex,value, type){
         this.lexeme = lexeme;
         this.value = value;
         this.type = type;
@@ -29,7 +29,7 @@ class Identifier extends BaseToken{
         let objectPath = lexeme.slice(1).split('.');
         let value = _.get(jsonObject, objectPath, null);
         value = utility.getTypeCastValue(value);
-        super(lexeme, value , constants.LEXEME_TYPES.IDENTIFIER, positionIndex);
+        super(lexeme, positionIndex, value , constants.LEXEME_TYPES.IDENTIFIER);
     }
 }
 
@@ -39,8 +39,8 @@ class Identifier extends BaseToken{
  * Base class for all Literals
  */
 class Literals extends BaseToken{
-    constructor(lexeme, value, positionIndex){
-        super(lexeme, value, constants.LEXEME_TYPES.LITERALS, positionIndex);
+    constructor(lexeme,positionIndex, value){
+        super(lexeme,positionIndex, value, constants.LEXEME_TYPES.LITERALS);
     }
 }
 
@@ -49,7 +49,7 @@ class Literals extends BaseToken{
  */
 class StringLiteral extends Literals{
     constructor(lexeme, positionIndex){
-        super(lexeme, lexeme, positionIndex);
+        super(lexeme,positionIndex, lexeme);
     }
 }
 
@@ -59,7 +59,7 @@ class StringLiteral extends Literals{
 class BooleanLiteral extends Literals{
     constructor(lexeme, positionIndex){
         let value = lexeme.toLowerCase() === 'true';
-        super(lexeme, value, positionIndex);
+        super(lexeme,positionIndex, value);
     }
 }
 
@@ -69,7 +69,7 @@ class BooleanLiteral extends Literals{
 class DecimalLiteral extends Literals{
     constructor(lexeme, positionIndex){
         let value = !isNaN(Number(lexeme)) ? Number(lexeme) : 0.00;
-        super(lexeme, value, positionIndex);
+        super(lexeme, positionIndex, value);
     }
 }
 
@@ -79,7 +79,7 @@ class DecimalLiteral extends Literals{
 class IntegerLiteral extends Literals{
     constructor(lexeme, positionIndex){
         let value = !isNaN(Number(lexeme)) ? Number(lexeme) : 0;
-        super(lexeme, value, positionIndex);
+        super(lexeme, positionIndex, value);
     }
 }
 
@@ -92,8 +92,8 @@ class IntegerLiteral extends Literals{
  * Base class for all Operators
  */
 class Operators extends BaseToken{
-    constructor(lexeme, value, positionIndex){
-        super(lexeme, value, constants.LEXEME_TYPES.OPERATORS, positionIndex);
+    constructor(lexeme, positionIndex, value){
+        super(lexeme, positionIndex, value, constants.LEXEME_TYPES.OPERATORS);
     }
 }
 
@@ -102,7 +102,7 @@ class Operators extends BaseToken{
  */
 class AndOperator extends Operators{
     constructor(lexeme, positionIndex){
-        super(lexeme, '&&', positionIndex);
+        super(lexeme, positionIndex, '&&');
     }
 }
 
@@ -111,7 +111,7 @@ class AndOperator extends Operators{
  */
 class OrOperator extends Operators{
     constructor(lexeme, positionIndex){
-        super(lexeme, '||', positionIndex);
+        super(lexeme, positionIndex, '||');
     }
 }
 
@@ -120,7 +120,7 @@ class OrOperator extends Operators{
  */
 class NotOperator extends Operators{
     constructor(lexeme, positionIndex){
-        super(lexeme, '!', positionIndex);
+        super(lexeme, positionIndex, '!');
     }
 }
 
@@ -129,7 +129,7 @@ class NotOperator extends Operators{
  */
 class EqualsOperator extends Operators{
     constructor(lexeme, positionIndex){
-        super(lexeme, '===', positionIndex);
+        super(lexeme, positionIndex, '===');
     }
 }
 
@@ -138,7 +138,7 @@ class EqualsOperator extends Operators{
  */
 class ExistsOperator extends Operators{
     constructor(lexeme, positionIndex){
-        super(lexeme, '!!', positionIndex);
+        super(lexeme, positionIndex, '!!');
     }
 }
 
@@ -151,8 +151,8 @@ class ExistsOperator extends Operators{
  * Base class for parenthesis
  */
 class Paranthesis extends BaseToken{
-    constructor(lexeme, value, positionIndex){
-        super(lexeme, value,constants.LEXEME_TYPES.PARANTHESIS, positionIndex);
+    constructor(lexeme, positionIndex, value){
+        super(lexeme, positionIndex, value, constants.LEXEME_TYPES.PARANTHESIS);
         // Identifier for paranthesis type
         this.isLeftParanthesis = value === '(';
     }
@@ -167,7 +167,7 @@ class Paranthesis extends BaseToken{
  */
 class LeftParanthesis extends Paranthesis{
     constructor(lexeme, positionIndex){
-        super(lexeme, '(', positionIndex);
+        super(lexeme, positionIndex, '(');
     }
 }
 
@@ -176,7 +176,7 @@ class LeftParanthesis extends Paranthesis{
  */
 class RightParanthesis extends Paranthesis{
     constructor(lexeme, positionIndex){
-        super(lexeme, ')', positionIndex);
+        super(lexeme, positionIndex, ')');
     }
 }
 /* Paranthesis declaration Ends*/
@@ -232,6 +232,9 @@ const tokenClasses = {
     "CLOSE_PARENTHESIS" : {
         regex : constants.REGEX.RIGHT_PARANTHESIS,
         instantiateClass : RightParanthesis
+    },
+    "INVALID_LEXEXME" : {
+        instantiateClass : BaseToken
     }
 };
 

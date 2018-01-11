@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for json_expression_evaluator/evaluator/parser.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">json_expression_evaluator/evaluator/</a> parser.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>33/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>10/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>33/33</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">81×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">84×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">20×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">10×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-yes">45×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span></td><td class="text"><pre class="prettyprint lang-js">/*jshint multistr:true, node:true, esversion:6*/
+'use strict';
+&nbsp;
+const constants = require('../constants'),
+      G = require('../globals'),
+      _ = require('lodash'),
+      utility = G.Utility;
+&nbsp;
+/** 
+ * This class handles the responsibility of parsing the tokens and lexemes to evaluate the value of expression
+*/
+class Parser{
+&nbsp;
+    /**
+     * Constructor of the class
+     * @param {Object} lexemeTokens : Map of lexemes : tokens
+     */
+    constructor(lexemeTokens){
+        this.lexemeTokens = lexemeTokens;
+    }
+&nbsp;
+    /**
+     * This method validates &amp; check if any invalid token which is not a part of grammar is present
+     */
+    checkIfAnyInvalidGrammarLexeme(){
+        let self = this;
+        
+        let invalidTokens = _.filter(self.lexemeTokens, function(token){
+            return token.type === constants.LEXEME_TYPES.INVALID;
+        });
+&nbsp;
+        return invalidTokens.length &gt; 0
+    }
+&nbsp;
+    /**
+     * This method validates the lexemeTokens and checks if left paranthesis is
+     * equal to right paranthesis
+     */
+    checkIfBalancedExpression(){
+        let self = this;
+&nbsp;
+        let paranthesisTokens = _.filter(self.lexemeTokens, function(token){
+            return token.type === constants.LEXEME_TYPES.PARANTHESIS;
+        });
+&nbsp;
+        let leftParanthesis = _.filter(paranthesisTokens, function(token){
+            return token.isLeftParanthesis;
+        });
+&nbsp;
+        let rightParanthesis = _.difference(paranthesisTokens, leftParanthesis);
+&nbsp;
+        let isValid = rightParanthesis.length === leftParanthesis.length;
+&nbsp;
+        if(isValid){
+            leftParanthesis.forEach(function(lp){
+                isValid = isValid &amp;&amp; rightParanthesis.some(function(rp){
+                    return rp.positionIndex &gt; lp.positionIndex;
+                });
+            });
+        }
+&nbsp;
+        return isValid;
+    }
+&nbsp;
+    /**
+     * This method parse each lexeme-token and replaces it values in the expression
+     * In the final step we have utilitised the Javascript's in-built eval() method to evaluate resultant expression
+     */
+    parseTokenToEvaluate(){
+        let self = this,
+        evaluationResult = false;
+        try
+        {
+            let expression = [];
+&nbsp;
+            //Creating a base Javascript expression to evaluate
+            self.lexemeTokens = _.sortBy(self.lexemeTokens, function(token){
+                return token.positionIndex;
+            });
+&nbsp;
+            for(let i = 0; i &lt; self.lexemeTokens.length; i++){
+                let token = self.lexemeTokens[i];
+                expression.push(token.value);   
+            }
+            
+            let expressionToEval = expression.join(' ');
+            evaluationResult = eval(expressionToEval);
+&nbsp;
+            utility.logMessage('Expression: ' + expressionToEval + ' Result: '+ evaluationResult, constants.LOG_LEVELS.INFO);
+        }catch(ex){
+            utility.logMessage('An error occured while evaluating the expression: ' + String(ex), constants.LOG_LEVELS.ERROR);
+            evaluationResult = false;
+        }
+&nbsp;
+        return evaluationResult;
+    }
+}
+&nbsp;
+module.exports = Parser;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 11 2018 12:31:15 GMT+0530 (IST)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

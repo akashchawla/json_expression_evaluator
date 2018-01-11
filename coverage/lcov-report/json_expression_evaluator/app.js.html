@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for json_expression_evaluator/app.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">json_expression_evaluator/</a> app.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">64.1% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>25/39</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">62.5% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">63.64% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">64.1% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>25/39</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*jshint multistr:true, node:true, esversion:6*/
+"use strict";
+&nbsp;
+const G = require('./globals'),
+      utility = G.Utility,
+      Evaluator = require('./evaluator'),
+      constants = require('./constants');
+&nbsp;
+/**
+ * This is main class for the Application initializatiom
+ */
+class App{
+    constructor(inputFilePath, outputFilePath){
+        this.inputFilePath = inputFilePath;
+        this.outputFilePath = outputFilePath;
+        this.evaluator = new Evaluator();
+    }
+&nbsp;
+    /**
+     * This method initialises the flow for the application
+     */
+    initialize(){
+        let self = this;
+        return new Promise(function(resolve, reject){
+            try{
+                // It validates whether the input file path and output filepath entered in command line is valid or not
+                if(utility.validateFilePath(self.inputFilePath) &amp;&amp; utility.validateFilePath(self.outputFilePath)){
+                    utility.logMessage('Input and Output FilePaths are validated, Reading records from csv');
+&nbsp;
+                    // If paths are valid, input data is read from the filepath mentioned by user
+                    utility.readCsvFile(self.inputFilePath)
+                    .then(function(inputData){
+                        utility.logMessage('CSV reading completed');
+&nbsp;
+                        let outputData = [];
+&nbsp;
+                        //ForEch input data, we are initantiating Evaluator with expression and jsonData
+                        inputData.forEach(function(data){
+                            
+                            let evaluationResult = self.evaluator.evaluate(data.expression, data.jsonData);
+                            outputData.push({expression : data.expression, jsonData: data.jsonData, result : evaluationResult});
+                        });
+&nbsp;
+                        utility.logMessage('Evaluation of each expression is completed');
+&nbsp;
+                        //All the output records are written in a file path mentioned by user (or default as output.csv)
+                        return utility.writeCsvFile(outputData, self.outputFilePath);
+                    })
+                    .then(function(){
+                        resolve();
+                    })
+                    .catch(<span class="fstat-no" title="function not covered" >function(err){</span>
+<span class="cstat-no" title="statement not covered" >                        reject(err);</span>
+                    });
+&nbsp;
+                }else{
+                    let err = new Error();
+                    err.message = 'Invalid/Missing input or output file path';
+                    reject(err);
+                }
+            }
+            catch(error){
+<span class="cstat-no" title="statement not covered" >                let err = new Error(error);</span>
+<span class="cstat-no" title="statement not covered" >                reject(err);</span>
+            }
+        });
+    }
+}
+&nbsp;
+module.exports = App;
+&nbsp;
+process.on('uncaughtException', <span class="fstat-no" title="function not covered" >function(err){</span>
+<span class="cstat-no" title="statement not covered" >    utility.logMessage('An Unhandled exception has been occurred', err.toString());</span>
+});
+&nbsp;
+/**
+ * This is the Invoking Function for the application
+ */
+(function(){
+    <span class="missing-if-branch" title="if path not taken" >I</span>if(require.main == module){
+        //Taking input and output filePaths from the console
+<span class="cstat-no" title="statement not covered" >        const inputFilePath = process.argv[2];</span>
+<span class="cstat-no" title="statement not covered" >        const outputFilePath = process.argv[3] || "output.csv";</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        utility.modifyLogLevel(constants.LOG_LEVELS.VERBOSE, true);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        utility.logMessage('Intiating App with inputs from file:' + inputFilePath);</span>
+        //Initiating an instance of application
+<span class="cstat-no" title="statement not covered" >        let app = new App(inputFilePath, outputFilePath);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        app.initialize()</span>
+            .then(<span class="fstat-no" title="function not covered" >function(){</span>
+                //Signifies the completion of application running suite
+<span class="cstat-no" title="statement not covered" >                utility.logMessage('Program suite completed. Please check the file : '+ outputFilePath + ' for results.');</span>
+<span class="cstat-no" title="statement not covered" >                process.exit(0);</span>
+            })
+            .catch(<span class="fstat-no" title="function not covered" >function(err){</span>
+<span class="cstat-no" title="statement not covered" >                utility.logMessage(err.message, constants.LOG_LEVELS.ERROR);</span>
+<span class="cstat-no" title="statement not covered" >                process.exit(-1);</span>
+            });
+    }
+})();</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Jan 11 2018 12:31:15 GMT+0530 (IST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

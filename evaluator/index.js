@@ -12,20 +12,12 @@ const _ = require('lodash'),
 class Evaluator{
 
     /**
-     * Constructor of the class
-     * @param {String} expression 
-     * @param {String} jsonData 
-     */
-    constructor(expression, jsonData){
-        this.expression = expression;
-        this.jsonData = jsonData;
-    }
-
-    /**
      * This method evaluates the expression on the basis of the jsonData
      * Logic of the method is mentioned below
+     * @param {*} expression : Query expression string
+     * @param {*} jsonData : Json Data input
      */
-    evaluate(){
+    evaluate(expression, jsonData){
         let self = this;
         /* 
         LOGIC:
@@ -35,22 +27,23 @@ class Evaluator{
         4. Pass these tokens to a parser, which will evaluate the expression and returns the result
         */
 
-        if(!_.isEmpty(self.expression) && utility.isJsonString(self.jsonData)){
-            let jsonObject = JSON.parse(self.jsonData);
-            //Getting lexemes out of the expression
-            let lexemes = self.expression.split(' ');
-        
-            //Filtering the lexemes which are empty strings
-            lexemes = _.filter(lexemes, function(lexeme){
-                return !_.isEmpty(lexeme.trim());
-            });
+        if(!_.isEmpty(expression) && utility.isJsonString(jsonData)){
+            let jsonObject = JSON.parse(jsonData);
+            
+            let lexemes = self._createLexemes(expression);
+
+            //Checking if no lexemes are there
+            if(lexemes.length === 0){
+                return false;
+            }
+
              //Treating these modules as abstract classes
             let classifier = new Classifier(lexemes);
             let lexemTokens = classifier.classifyTokens(jsonObject);
 
              //Passing the tokens and lexems to the Parser for evaluating the expression result
             let parser = new Parser(lexemTokens);
-            if(parser.checkIfBalancedExpression()){
+            if(!parser.checkIfAnyInvalidGrammarLexeme() && parser.checkIfBalancedExpression()){
                 return parser.parseTokenToEvaluate(); 
             }else{
                 return false;
@@ -60,7 +53,23 @@ class Evaluator{
         }
     }
 
-    
+    /**
+     * This method takes in the expression and create lexemes out of it
+     * @param {string} expression e.g. $mattress.name == 'king' AND $cost == 100.0
+     */
+    _createLexemes(expression){
+
+        expression = expression || '';
+        //Getting lexemes out of the expression
+        let lexemes = expression.split(' ');
+        
+        //Filtering the lexemes which are empty strings
+        lexemes = _.filter(lexemes, function(lexeme){
+            return !_.isEmpty(lexeme.trim());
+        });
+
+        return lexemes;
+    }    
 }
 
 module.exports = Evaluator;

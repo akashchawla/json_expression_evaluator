@@ -1,4 +1,4 @@
-/*jshint multistr:true, node:true, esversion:6*/
+/*jshint multistr:true, node:true, esversion:6, mocha:true*/
 'use strict';
 
 const should = require('should'),
@@ -15,7 +15,7 @@ const utilityTest = function(){
                 let logLevelsAllowed = utilityInstance.getLogLevelsAllowed();
                 logLevelsAllowed.should.match(function(it){
                     return it.should.be.an.Array();
-                })
+                });
                 logLevelsAllowed.should.have.length(2);
             });
 
@@ -29,7 +29,7 @@ const utilityTest = function(){
                 let logLevelsAllowed = utilityInstance.getLogLevelsAllowed();
                 logLevelsAllowed.should.match(function(it){
                     return it.should.be.an.Array();
-                })
+                });
                 logLevelsAllowed.should.have.length(1);
             });
 
@@ -40,7 +40,7 @@ const utilityTest = function(){
                 let logLevelsAllowed = utilityInstance.getLogLevelsAllowed();
                 logLevelsAllowed.should.match(function(it){
                     return it.should.be.an.Array();
-                })
+                });
                 logLevelsAllowed.should.have.length(3);
             });
 

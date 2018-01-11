@@ -75,12 +75,16 @@ class Utility{
             try{
                 csv
                 .fromPath(filePath, {headers: true})
+                .on("error",function(err){
+                    reject(err);
+                })
                 .on("data", function(rowData){
                     inputData.push(rowData);
                 })
                 .on("end", function(){
                     resolve(inputData);
                 });
+                
             }
             catch(ex){
                 let err = new Error();

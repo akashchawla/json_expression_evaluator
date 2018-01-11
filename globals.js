@@ -2,7 +2,7 @@
 'use strict';
 
 let globals = {
-    Utility : new (require('./utility'))()
+    Utility : new (require('./utility'))(),
 };
 
 module.exports = globals;

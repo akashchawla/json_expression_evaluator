@@ -33,3 +33,11 @@ Example : node app.js input.csv output.csv
 <<output_file_path>> - It is non-mandatory arguement. By default, it saves result at root directory of repository
 
 NOTE : Sample input and output file generated can be found in the root folder
+
+=== TO RUN THE TEST SUITE ===
+
+Run following command:
+
+```
+npm test
+```
